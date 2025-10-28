@@ -6,7 +6,7 @@
 **A**: 按以下步骤排查：
 ```bash
 # 1. 检查端口是否被占用
-netstat -tlnp | grep :3000
+netstat -tlnp | grep :4000
 
 # 2. 查看服务日志
 docker-compose -f docker-compose-gitea.yml logs gitea
@@ -19,7 +19,7 @@ docker-compose -f docker-compose-gitea.yml down
 docker-compose -f docker-compose-gitea.yml up -d
 ```
 
-### Q: 访问 http://localhost:3000 显示 502 错误
+### Q: 访问 http://localhost:4000 显示 502 错误
 **A**: 通常是服务未完全启动，等待1-2分钟再试：
 ```bash
 # 查看启动进度
@@ -32,7 +32,7 @@ docker-compose -f docker-compose-gitea.yml logs -f gitea
 **A**: 可以，修改 `docker-compose-gitea.yml`：
 ```yaml
 ports:
-  - '8080:3000'    # 改为8080端口
+  - '8080:4000'    # 改为8080端口
   - '2222:22'      # 改为2222端口
 ```
 然后重启服务。
@@ -144,7 +144,7 @@ ls -la ~/.ssh/id_rsa*
 **A**: 两种方式：
 ```bash
 # HTTP方式
-git clone http://localhost:3000/username/repository.git
+git clone http://localhost:4000/username/repository.git
 
 # SSH方式
 git clone ssh://git@localhost:222/username/repository.git

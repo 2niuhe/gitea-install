@@ -33,11 +33,11 @@ docker-compose -f docker-compose-gitea.yml up -d
 ./manage-gitea.sh status
 
 # 4. 访问Web界面
-open http://localhost:3000
+open http://localhost:4000
 ```
 
 ### 首次配置
-1. 浏览器访问: http://localhost:3000
+1. 浏览器访问: http://localhost:4000
 2. 选择数据库: SQLite3 (推荐)
 3. 创建管理员账户
 4. 完成安装
@@ -75,7 +75,7 @@ open http://localhost:3000
 
 ```mermaid
 graph TB
-    A[用户] --> B[Web界面 3000]
+    A[用户] --> B[Web界面 4000]
     A --> C[SSH服务 222]
     B --> D[Gitea容器]
     C --> D
@@ -206,7 +206,7 @@ graph TB
 ./manage-gitea.sh start
 
 # 2. 访问界面
-open http://localhost:3000
+open http://localhost:4000
 
 # 3. 创建第一个仓库
 # 开始你的Git之旅！

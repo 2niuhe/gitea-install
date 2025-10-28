@@ -6,7 +6,7 @@
 
 ## 📋 服务信息
 
-- **Web 访问地址**: http://localhost:3000
+- **Web 访问地址**: http://localhost:4000
 - **SSH 地址**: git@localhost:222
 - **容器名称**: gitea
 - **数据存储**: Docker 持久化卷
@@ -14,7 +14,7 @@
 ## 🚀 首次设置
 
 ### 1. 访问 Web 界面
-打开浏览器访问：http://localhost:3000
+打开浏览器访问：http://localhost:4000
 
 ### 2. 初始配置（首次访问时会看到）
 - **数据库类型**: SQLite3 (已配置)
@@ -40,13 +40,13 @@
 
 ```bash
 # 克隆仓库（使用 HTTPS）
-git clone http://localhost:3000/username/repository-name.git
+git clone http://localhost:4000/username/repository-name.git
 
 # 克隆仓库（使用 SSH）
 git clone ssh://git@localhost:222/username/repository-name.git
 
 # 添加远程仓库
-git remote add origin http://localhost:3000/username/repository-name.git
+git remote add origin http://localhost:4000/username/repository-name.git
 
 # 推送代码
 git push -u origin main
@@ -96,7 +96,7 @@ sudo cp -r /var/lib/docker/volumes/gitea_data/_data ./backup/
 ```yaml
 environment:
   - GITEA__server__DOMAIN=0.0.0.0  # 或者您的IP地址
-  - GITEA__server__ROOT_URL=http://YOUR_IP:3000/
+  - GITEA__server__ROOT_URL=http://YOUR_IP:4000/
 ```
 
 2. **重新启动服务**：
@@ -151,7 +151,7 @@ A: 数据存储在 Docker 卷中，即使容器重启数据也不会丢失。
 
 ## 🎯 快速开始总结
 
-1. **访问**: http://localhost:3000
+1. **访问**: http://localhost:4000
 2. **创建管理员账户**
 3. **创建第一个仓库**
 4. **开始使用您的私有 Git 服务器！**

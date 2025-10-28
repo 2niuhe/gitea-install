@@ -11,7 +11,7 @@ case "$1" in
     start)
         echo "启动 Gitea 服务..."
         docker-compose -f $COMPOSE_FILE up -d
-        echo "Gitea 已启动，访问地址: http://localhost:3000"
+        echo "Gitea 已启动，访问地址: http://localhost:4000"
         ;;
     stop)
         echo "停止 Gitea 服务..."
@@ -59,7 +59,7 @@ case "$1" in
         echo "  update  - 更新到最新版本"
         echo "  backup  - 备份数据"
         echo ""
-        echo "Web 访问地址: http://localhost:3000"
+        echo "Web 访问地址: http://localhost:4000"
         exit 1
         ;;
 esac

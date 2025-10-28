@@ -256,7 +256,7 @@ import_data() {
     verify_data
 
     log "🎉 数据迁移完成！"
-    log "Web 访问地址: http://localhost:3000"
+    log "Web 访问地址: http://localhost:4000"
     log "管理命令: ./manage-gitea.sh status"
 }
 
@@ -361,7 +361,7 @@ verify_data() {
     fi
 
     # 测试Web服务
-    if curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 | grep -q "200\|302"; then
+    if curl -s -o /dev/null -w "%{http_code}" http://localhost:4000 | grep -q "200\|302"; then
         log "✅ Web服务响应正常"
     else
         warn "Web服务响应异常"

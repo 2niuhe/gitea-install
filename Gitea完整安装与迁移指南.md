@@ -82,7 +82,7 @@ services:
     container_name: gitea
     restart: unless-stopped
     ports:
-      - '3000:3000'    # Web 端口
+      - '4000:4000'    # Web 端口
       - '222:22'       # SSH 端口
     environment:
       - USER_UID=1000
@@ -90,9 +90,9 @@ services:
       - GITEA__database__DB_TYPE=sqlite3
       - GITEA__database__PATH=/data/gitea/gitea.db
       - GITEA__server__DOMAIN=localhost
-      - GITEA__server__HTTP_PORT=3000
+      - GITEA__server__HTTP_PORT=4000
       - GITEA__server__SSH_PORT=222
-      - GITEA__server__ROOT_URL=http://localhost:3000/
+      - GITEA__server__ROOT_URL=http://localhost:4000/
     volumes:
       - gitea_data:/data
       - /etc/timezone:/etc/timezone:ro
@@ -124,7 +124,7 @@ docker-compose ps
 
 ### 步骤5: 初始化配置
 
-1. **访问 Web 界面**: http://localhost:3000
+1. **访问 Web 界面**: http://localhost:4000
 2. **数据库配置**: 使用默认的 SQLite3
 3. **管理员设置**: 创建管理员账户
 4. **服务器设置**: 保持默认配置
@@ -320,7 +320,7 @@ services:
     image: gitea/gitea:latest
     restart: unless-stopped
     ports:
-      - '3000:3000'
+      - '4000:4000'
       - '222:22'
     volumes:
       - gitea_data:/data
@@ -345,7 +345,7 @@ EOFCOMPOSE
         alpine chown -R 1000:1000 /data
 
     docker-compose up -d
-    echo "导入完成！访问: http://localhost:3000"
+    echo "导入完成！访问: http://localhost:4000"
 }
 
 # 执行
@@ -383,7 +383,7 @@ docker exec gitea find /data/git/repositories -name "*.git" -type d | wc -l
 docker exec gitea sqlite3 /data/gitea/gitea.db "SELECT COUNT(*) FROM repository;"
 
 # 5. 测试访问
-curl -I http://localhost:3000
+curl -I http://localhost:4000
 ```
 
 ---
@@ -403,12 +403,12 @@ docker run --rm \
 #### 2. 端口冲突
 ```bash
 # 检查端口占用
-netstat -tlnp | grep :3000
+netstat -tlnp | grep :4000
 
 # 修改端口映射
 # 在 docker-compose.yml 中修改 ports 部分
 ports:
-  - '8080:3000'  # 改为其他端口
+  - '8080:4000'  # 改为其他端口
 ```
 
 #### 3. 数据库损坏
@@ -545,7 +545,7 @@ docker exec -it gitea gitea admin user change-password --username admin --passwo
 - **日志目录**: `/data/gitea/log/`
 
 ### 网络端口
-- **Web**: 3000
+- **Web**: 4000
 - **SSH**: 222
 
 ---
